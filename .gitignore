@@ -6,6 +6,7 @@ bin/
 
 # Database
 *.db
+*.db-*
 
 # Spec (local reference only)
 SPEC.md
