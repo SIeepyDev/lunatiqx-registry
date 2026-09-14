@@ -1,0 +1,12 @@
+LUNATIQX REGISTRY
+
+This repository is a modified fork of agentoperations/agent-registry:
+https://github.com/agentoperations/agent-registry
+
+At setup time, the upstream GitHub repository exposed no LICENSE or NOTICE
+file and GitHub reported no detected repository license. Do not describe this
+fork as Apache-2.0 or redistribute it under that license unless the upstream
+maintainer provides authoritative licensing terms. Preserve any license or
+NOTICE files added upstream before distributing this fork.
+
+LUNATIQX-specific changes include product branding and bootstrap automation.

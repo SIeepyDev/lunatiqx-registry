@@ -1,4 +1,6 @@
-# Agent Registry
+# LUNATIQX REGISTRY
+
+A branded fork of [agentoperations/agent-registry](https://github.com/agentoperations/agent-registry).
 
 A vendor-neutral, agent-framework-agnostic registry for AI agents, skills, and MCP servers.
 
@@ -30,7 +32,7 @@ Slide deck covering the problem, architecture, and workflow:
 
 ### Web UI
 
-The server embeds a catalog UI at the root URL. Browse artifacts by kind, filter by status, search across all kinds, and click through to see identity, OCI references, eval records, promotion history, and resolved dependencies.
+The LUNATIQX REGISTRY server embeds a catalog UI at the root URL. Browse artifacts by kind, filter by status, search across all kinds, and click through to see identity, OCI references, eval records, promotion history, and resolved dependencies.
 
 ![Catalog view](docs/screenshots/ui-catalog.png)
 
@@ -159,7 +161,7 @@ All under `/api/v1`. Responses wrapped in `{ "data": ..., "_meta": {...}, "pagin
 | GET | `/{kind}/{ns}/{name}/versions/{ver}/dependencies` | Deps |
 | GET | `/{kind}/{ns}/{name}/versions/{ver}/export` | Export standard doc |
 | GET | `/search?q=...` | Search |
-| GET | `/ping` | Health |
+| GET | `/api/v1/ping` | Health |
 
 ## Deployment
 
