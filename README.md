@@ -163,6 +163,14 @@ All under `/api/v1`. Responses wrapped in `{ "data": ..., "_meta": {...}, "pagin
 | GET | `/search?q=...` | Search |
 | GET | `/api/v1/ping` | Health |
 
+## Licensing
+
+This fork does not claim an Apache license or any other upstream license. The upstream repository currently publishes no `LICENSE`, `NOTICE`, or SPDX identifier, and GitHub reports no detected license. The root `LICENSE` file is a licensing-status notice only; it grants no rights. Until the upstream copyright holders publish applicable terms, treat the upstream work as unlicensed / all rights reserved and obtain permission before redistribution.
+
+- Upstream licensing issue: [agentoperations/agent-registry#3](https://github.com/agentoperations/agent-registry/issues/3)
+- GitHub license detection: https://github.com/agentoperations/agent-registry
+- Fork attribution and review details: [NOTICE](NOTICE)
+
 ## Deployment
 
 ### Local

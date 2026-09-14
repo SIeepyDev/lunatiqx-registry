@@ -1,0 +1,31 @@
+name: license-guard
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  no-unverified-apache-claim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject Apache-2.0 claims in repository legal metadata
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          files=(README.md NOTICE LICENSE)
+          for file in "${files[@]}"; do
+            [[ -f "$file" ]] || continue
+            if grep -nEi 'Apache[- ]2[.]0|SPDX-License-Identifier:[[:space:]]*Apache-2[.]0' "$file"; then
+              echo "::error::Unverified Apache-2.0 claim found in $file"
+              exit 1
+            fi
+          done
+          if grep -RIn --exclude-dir=.git --include='*.go' \
+            'SPDX-License-Identifier:[[:space:]]*Apache-2[.]0' .; then
+            echo "::error::Unverified Apache-2.0 SPDX header found"
+            exit 1
+          fi
