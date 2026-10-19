@@ -1,0 +1,25 @@
+{
+  "id": "OMEGA-PRED-20261019-01",
+  "version": "0.1.0",
+  "baseline": {
+    "source": "Google World constitution",
+    "destination": "GitHub skill contract v0.1 and transfer passport v0.1",
+    "executable_mesh": "not verified"
+  },
+  "primary_build": "Evidence Fabric",
+  "secondary_build": "Connector Mesh",
+  "prediction": "A bounded source-to-destination evidence graph with strict edge validation will reject missing evidence, unverified permissions, and event self-loops while accepting an observed readback-verified transfer",
+  "probability": 0.85,
+  "tests": [
+    "valid_graph",
+    "missing_evidence",
+    "permission_escalation",
+    "self_loop",
+    "unknown_endpoint",
+    "duplicate_edge"
+  ],
+  "success": "at least 6 deterministic fixture assertions and exact GitHub readback",
+  "scope": "additive experiment branch only",
+  "rollback": "leave branch unmerged; no production mutation",
+  "status": "FROZEN_BEFORE_TESTS"
+}
