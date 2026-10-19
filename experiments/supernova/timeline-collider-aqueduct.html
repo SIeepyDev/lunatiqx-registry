@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Timeline Collider — Gravity Water Lab</title>
+<style>
+body{font:16px system-ui;background:#111827;color:#e5e7eb;max-width:850px;margin:auto;padding:22px}
+main{background:#1f2937;padding:20px;border-radius:16px}label{display:block;margin:15px 0}
+input{width:100%} output{font-weight:bold;color:#7dd3fc} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{padding:12px;background:#374151;border-radius:10px} small{color:#bac5d3}
+button{padding:10px;margin:10px 8px 0 0;background:#0e7490;color:white;border:0;border-radius:7px;cursor:pointer}
+pre{white-space:pre-wrap;overflow-wrap:anywhere}
+</style><main><h1>Timeline Collider: Aqueduct Lab</h1>
+<p>Model gravity-fed channels inspired by historical aqueducts. This is a fictional, simplified scenario model—not an engineering design calculator or a reconstruction of a specific ancient aqueduct.</p>
+<label>Channel length <output id="lengthOut">100</output> m<input id="length" type="range" min="20" max="500" value="100" step="10"></label>
+<label>Total elevation drop <output id="dropOut">2</output> m<input id="drop" type="range" min="0" max="25" value="2" step="0.5"></label>
+<label>Friction multiplier <output id="roughOut">1</output><input id="rough" type="range" min="0.5" max="5" value="1" step="0.1"></label>
+<label>Demand <output id="demandOut">10</output> model units<input id="demand" type="range" min="1" max="60" value="10" step="1"></label>
+<div class="stats"><div class="stat"><small>Gradient</small><div id="gradient"></div></div><div class="stat"><small>Predicted supply</small><div id="supply"></div></div><div class="stat"><small>Coverage</small><div id="coverage"></div></div></div>
+<button id="save">Save comparison baseline</button><button id="export">Export scenario JSON</button>
+<h2>Experiment record</h2><pre id="result"></pre>
+<p><small>Predicted supply is a unitless educational heuristic: 100 × sqrt(drop / length) / friction. It is not a hydraulic law, empirical measurement, or validated flow prediction. A real design needs geometry, water depth, roughness, Reynolds regime, and proper hydraulic equations.</small></p>
+</main>
+<script>
+(function(){
+const ids=['length','drop','rough','demand'];const $=id=>document.getElementById(id);let baseline=null;
+function calculate(x){const gradient=x.drop/x.length;const supply=100*Math.sqrt(Math.max(0,gradient))/x.rough;return {gradient,supply,coverage:Math.min(1,supply/x.demand)}}
+function state(){let x={};for(const k of ids)x[k]=Number($(k).value);return x}
+function render(){const x=state(),r=calculate(x);for(const k of ids)$(k+'Out').textContent=x[k].toString();$('gradient').textContent=(100*r.gradient).toFixed(2)+'%';$('supply').textContent=r.supply.toFixed(2)+' units';$('coverage').textContent=(100*r.coverage).toFixed(0)+'%';$('result').textContent=JSON.stringify({scenario:x,result:r,baseline,model:'educational_heuristic_v0.1',evidence_level:'simulation_only'},null,2)}
+for(const k of ids)$(k).addEventListener('input',render);
+$('save').onclick=()=>{baseline={inputs:state(),outputs:calculate(state())};render()};
+$('export').onclick=()=>{const report={scenario:state(),result:calculate(state()),baseline,model:'educational_heuristic_v0.1',evidence_level:'simulation_only'};const blob=new Blob([JSON.stringify(report,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='aqueduct-experiment.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+render();
+})();
+</script></html>
