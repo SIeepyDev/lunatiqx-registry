@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "id": "prometheus.skill.verify-artifact",
+  "kind": "operational",
+  "level": 1,
+  "inputs": [
+    "artifact_reference",
+    "expected_properties"
+  ],
+  "outputs": [
+    "verdict",
+    "observations",
+    "evidence_references"
+  ],
+  "authority": {
+    "default": "read_only",
+    "external_writes": false
+  },
+  "verification": {
+    "source_readback": true,
+    "negative_results": true
+  },
+  "lifecycle": {
+    "state": "draft",
+    "promotion_requires_tests": true
+  },
+  "meta": {
+    "recursion_limit": 4,
+    "requires_measurable_improvement": true
+  }
+}
