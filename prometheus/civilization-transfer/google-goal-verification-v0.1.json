@@ -1,0 +1,73 @@
+{
+  "passport_id": "GW-GH-20261019-01",
+  "version": "0.1.0",
+  "status": "TRANSFER_PARTIAL",
+  "source": {
+    "world": "Google World",
+    "title": "Operating Constitution and Execution Scaffold v0.1",
+    "document_id": "1ziSkpZnkzaLdlwLJsYgR0M919iJCqIUfAd24s7w7_BQ",
+    "source_status": "PROPOSED DESIGN / MATERIALIZED DOCUMENT",
+    "method": "decompose intent into minimum verifiable tasks with explicit acceptance tests and readback"
+  },
+  "destination": {
+    "world": "GitHub",
+    "repository": "SIeepyDev/lunatiqx-registry",
+    "branch": "experiment/prometheus-territory-evolution-20261019",
+    "existing_artifact": "prometheus/skill-foundry/skill-contract-v0.1.json",
+    "existing_blob": "5ecc10072040af2f59799a8a26d8d55147947727"
+  },
+  "authority": {
+    "scope": "isolated experiment branch; additive artifact only",
+    "transfer_of_ownership": false
+  },
+  "prediction": {
+    "id": "GW-GH-PRED-01",
+    "expected": "new native JSON passport can be created and read back exactly; no functional execution proof",
+    "probability": 0.9,
+    "failure": "write error or readback mismatch"
+  },
+  "adaptation": {
+    "inputs": [
+      "goal",
+      "constraints",
+      "existing_evidence"
+    ],
+    "outputs": [
+      "task_dag",
+      "acceptance_tests",
+      "verification_receipts"
+    ],
+    "rules": [
+      "recover existing artifacts",
+      "minimum verifiable tasks",
+      "explicit permission gates",
+      "readback before VERIFIED",
+      "no blind retry"
+    ]
+  },
+  "tests": {
+    "planned": [
+      "JSON parse",
+      "required field validation",
+      "exact content readback",
+      "negative fixture for missing acceptance tests"
+    ],
+    "performed": []
+  },
+  "score": {
+    "status": "provisional",
+    "source_evidence": 11,
+    "destination_understanding": 12,
+    "adaptation_correctness": 14,
+    "verified_implementation": 8,
+    "measured_improvement": 0,
+    "safety": 10,
+    "handoff": 5
+  },
+  "peer_audit": {
+    "status": "NOT_REQUESTED_EXTERNALLY"
+  },
+  "chronos": {
+    "deployment": "NONE"
+  }
+}
