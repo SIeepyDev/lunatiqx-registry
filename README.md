@@ -1,3 +1,13 @@
+![lunatiqx-registry visual identity](assets/identity.svg)
+
+**Agent and MCP registry fork; existing build and licensing notices preserved.**
+
+[**Explore source**](.) · [**Repository details**](../../)
+
+**Visibility:** `PUBLIC` · **Identity:** `LIVE IN GITHUB` · **Deployment:** `NOT ASSERTED BY BANNER`
+
+---
+
 # LUNATIQX REGISTRY
 
 A branded fork of [agentoperations/agent-registry](https://github.com/agentoperations/agent-registry).
